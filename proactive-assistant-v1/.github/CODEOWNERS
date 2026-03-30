@@ -1,0 +1,35 @@
+# Global owners - these users will be requested for review on all PRs
+* @maintainer-lead @core-contributor
+
+# Extension source code
+/vscode-proactive-assistant/src/ @maintainer-lead @extension-team
+/vscode-proactive-assistant/package.json @maintainer-lead
+
+# Documentation
+docs/ @docs-maintainer @maintainer-lead
+*.md @docs-maintainer
+
+# GitHub configuration
+.github/ @maintainer-lead @devops-team
+
+# CI/CD workflows
+.github/workflows/ @devops-team @maintainer-lead
+
+# Scripts
+scripts/ @devops-team @maintainer-lead
+
+# Webview UI
+/vscode-proactive-assistant/webview/ @frontend-team @maintainer-lead
+
+# Services and core logic
+/vscode-proactive-assistant/src/services/ @core-contributor @maintainer-lead
+
+# Tests
+/vscode-proactive-assistant/test/ @qa-lead @core-contributor
+
+# Security-sensitive files
+.github/workflows/security.yml @security-team @maintainer-lead
+
+# Uncomment and customize these once you have specific team members:
+# * @your-github-username
+# /vscode-proactive-assistant/src/ @your-github-username

@@ -1,0 +1,77 @@
+# Source files (compiled output in out/ is sufficient)
+src/**
+
+# Test files
+test/**
+**/*.test.ts
+**/*.spec.ts
+
+# Development configuration
+.vscode/**
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/settings.json
+!.vscode/tasks.json
+tsconfig.json
+tsconfig.*.json
+.eslintrc*
+.eslintignore
+.prettierrc*
+.prettierignore
+jest.config.js
+webpack.config.js
+.mocharc.json
+.nycrc.json
+
+# Node modules (dev dependencies)
+node_modules/**
+
+# Git and GitHub
+.git/**
+.gitignore
+.gitattributes
+.github/**
+
+# Documentation (large assets excluded)
+docs/**
+*.md
+!README.md
+!CHANGELOG.md
+!LICENSE
+
+# Source maps
+**/*.map
+
+# Logs
+*.log
+logs/**
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.idea/**
+*.swp
+*.swo
+*~
+.vs/**
+*.code-workspace
+
+# Build artifacts and test coverage
+out/test/**
+dist/**
+build/**
+coverage/
+.nyc_output/
+
+# Temporary directories
+temp_docs_consolidation/
+
+# Scripts (only needed for development)
+scripts/**
+
+# Misc
+*.vsix
+.env
+.env.*

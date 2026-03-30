@@ -1,0 +1,12 @@
+{
+  "require": [
+    "source-map-support/register"
+  ],
+  "recursive": true,
+  "spec": [
+    "out/test/suite/**/*.test.js"
+  ],
+  "timeout": 10000,
+  "ui": "bdd",
+  "color": true
+}

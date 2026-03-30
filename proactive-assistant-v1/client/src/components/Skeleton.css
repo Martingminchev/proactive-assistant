@@ -1,0 +1,185 @@
+/* ============================================
+   SKELETON LOADING COMPONENTS
+   ============================================ */
+
+/* Base Skeleton */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-bg-hover, #334155) 0%,
+    var(--color-border-light, #475569) 50%,
+    var(--color-bg-hover, #334155) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.5s ease-in-out infinite;
+  border-radius: 4px;
+}
+
+@keyframes skeletonShimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Skeleton Variants */
+.skeleton-rect {
+  border-radius: 4px;
+}
+
+.skeleton-pill {
+  border-radius: 9999px;
+}
+
+.skeleton-circle {
+  border-radius: 50%;
+}
+
+.skeleton-button {
+  border-radius: 8px;
+}
+
+/* ============================================
+   SKELETON CARD
+   ============================================ */
+.skeleton-card {
+  background: var(--color-bg-card, #1e293b);
+  border: 1px solid var(--color-border, #334155);
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.skeleton-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skeleton-title {
+  margin-top: 0.25rem;
+}
+
+.skeleton-line {
+  margin-top: 0.25rem;
+}
+
+.skeleton-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border, #334155);
+}
+
+.skeleton-feedback {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* ============================================
+   SKELETON GREETING
+   ============================================ */
+.skeleton-greeting {
+  background: var(--color-bg-card, #1e293b);
+  border: 1px solid var(--color-border, #334155);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.skeleton-greeting-title {
+  margin-bottom: 0.5rem;
+}
+
+.skeleton-stats {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.skeleton-tip {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(245, 158, 11, 0.1);
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  margin-top: 0.5rem;
+}
+
+/* ============================================
+   SKELETON FEED
+   ============================================ */
+.skeleton-feed {
+  margin-top: 1rem;
+}
+
+.skeleton-feed-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem;
+}
+
+/* ============================================
+   SKELETON HISTORY
+   ============================================ */
+.skeleton-history-item {
+  background: var(--color-bg, #0f172a);
+  border: 1px solid var(--color-border, #334155);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.skeleton-history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skeleton-history-meta {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.25rem;
+}
+
+/* ============================================
+   SKELETON PAGE
+   ============================================ */
+.skeleton-page {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .skeleton-feed-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .skeleton-stats {
+    flex-wrap: wrap;
+  }
+}

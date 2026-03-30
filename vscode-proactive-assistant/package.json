@@ -1,0 +1,339 @@
+{
+  "name": "proactive-ai-assistant",
+  "displayName": "Proactive AI Assistant",
+  "description": "AI that watches your workflow and interrupts at the right time with helpful suggestions",
+  "version": "0.1.0",
+  "publisher": "proactive-assistant",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Machine Learning",
+    "Snippets",
+    "Other"
+  ],
+  "keywords": [
+    "ai",
+    "assistant",
+    "proactive",
+    "pieces",
+    "productivity",
+    "workflow"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "proactiveAssistant.openPanel",
+        "title": "Open Assistant Panel",
+        "category": "Proactive Assistant"
+      },
+      {
+        "command": "proactiveAssistant.toggleFocusMode",
+        "title": "Toggle Focus Mode",
+        "category": "Proactive Assistant",
+        "icon": "$(eye-closed)"
+      },
+      {
+        "command": "proactiveAssistant.showStats",
+        "title": "Show Activity Statistics",
+        "category": "Proactive Assistant"
+      },
+      {
+        "command": "proactiveAssistant.dismissSuggestion",
+        "title": "Dismiss Current Suggestion",
+        "category": "Proactive Assistant"
+      },
+      {
+        "command": "proactiveAssistant.applyFix",
+        "title": "Apply Suggested Fix",
+        "category": "Proactive Assistant"
+      },
+      {
+        "command": "proactiveAssistant.snoozeSuggestion",
+        "title": "Snooze Suggestions",
+        "category": "Proactive Assistant"
+      },
+      {
+        "command": "proactiveAssistant.configure",
+        "title": "Configure Settings",
+        "category": "Proactive Assistant",
+        "icon": "$(gear)"
+      },
+      {
+        "command": "proactiveAssistant.showWelcome",
+        "title": "Show Welcome",
+        "category": "Proactive Assistant"
+      },
+      {
+        "command": "proactiveAssistant.showLogs",
+        "title": "Show Extension Logs",
+        "category": "Proactive Assistant"
+      },
+      {
+        "command": "proactiveAssistant.acceptSuggestion",
+        "title": "Accept Suggestion",
+        "category": "Proactive Assistant"
+      },
+      {
+        "command": "proactiveAssistant.resetState",
+        "title": "Reset Flow State",
+        "category": "Proactive Assistant"
+      },
+      {
+        "command": "proactiveAssistant.requestSuggestion",
+        "title": "Request Suggestion",
+        "category": "Proactive Assistant"
+      }
+    ],
+    "views": {
+      "explorer": [
+        {
+          "id": "proactiveAssistant.panel",
+          "name": "Proactive Assistant",
+          "when": "proactiveAssistant.enabled",
+          "icon": "$(lightbulb)",
+          "contextualTitle": "Proactive Assistant"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "proactiveAssistant",
+          "title": "Proactive Assistant",
+          "icon": "$(lightbulb-autofix)"
+        }
+      ]
+    },
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "proactiveAssistant.dismissSuggestion",
+          "when": "proactiveAssistant.hasActiveSuggestion"
+        },
+        {
+          "command": "proactiveAssistant.applyFix",
+          "when": "proactiveAssistant.hasActiveSuggestion"
+        },
+        {
+          "command": "proactiveAssistant.snoozeSuggestion",
+          "when": "proactiveAssistant.hasActiveSuggestion"
+        },
+        {
+          "command": "proactiveAssistant.acceptSuggestion",
+          "when": "proactiveAssistant.hasActiveSuggestion"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "proactiveAssistant.toggleFocusMode",
+          "when": "view == proactiveAssistant.panel",
+          "group": "navigation@1"
+        },
+        {
+          "command": "proactiveAssistant.showStats",
+          "when": "view == proactiveAssistant.panel",
+          "group": "navigation@2"
+        },
+        {
+          "command": "proactiveAssistant.configure",
+          "when": "view == proactiveAssistant.panel",
+          "group": "navigation@3"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "proactiveAssistant.dismissSuggestion",
+          "when": "view == proactiveAssistant.panel && viewItem == suggestion",
+          "group": "inline@1"
+        },
+        {
+          "command": "proactiveAssistant.applyFix",
+          "when": "view == proactiveAssistant.panel && viewItem == suggestion",
+          "group": "inline@2"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "proactiveAssistant.showStats",
+          "when": "proactiveAssistant.enabled",
+          "group": "9_cutcopypaste@5"
+        },
+        {
+          "command": "proactiveAssistant.toggleFocusMode",
+          "when": "proactiveAssistant.enabled",
+          "group": "9_cutcopypaste@6"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "proactiveAssistant.openPanel",
+        "key": "ctrl+shift+a",
+        "mac": "cmd+shift+a",
+        "when": "proactiveAssistant.enabled"
+      },
+      {
+        "command": "proactiveAssistant.toggleFocusMode",
+        "key": "ctrl+shift+f",
+        "mac": "cmd+shift+f",
+        "when": "proactiveAssistant.enabled"
+      },
+      {
+        "command": "proactiveAssistant.dismissSuggestion",
+        "key": "escape",
+        "when": "proactiveAssistant.hasActiveSuggestion"
+      },
+      {
+        "command": "proactiveAssistant.applyFix",
+        "key": "ctrl+shift+enter",
+        "mac": "cmd+shift+enter",
+        "when": "proactiveAssistant.hasActiveSuggestion"
+      }
+    ],
+    "configuration": {
+      "title": "Proactive AI Assistant",
+      "properties": {
+        "proactiveAssistant.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable/disable the Proactive AI Assistant",
+          "scope": "application"
+        },
+        "proactiveAssistant.focusMode": {
+          "type": "boolean",
+          "default": false,
+          "description": "When enabled, suppress non-critical suggestions",
+          "scope": "resource"
+        },
+        "proactiveAssistant.quietHours.enabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable quiet hours to suppress suggestions during specific times"
+        },
+        "proactiveAssistant.quietHours.start": {
+          "type": "string",
+          "default": "22:00",
+          "pattern": "^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$",
+          "patternErrorMessage": "Time must be in HH:MM format",
+          "description": "Start time for quiet hours (HH:MM format)"
+        },
+        "proactiveAssistant.quietHours.end": {
+          "type": "string",
+          "default": "08:00",
+          "pattern": "^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$",
+          "patternErrorMessage": "Time must be in HH:MM format",
+          "description": "End time for quiet hours (HH:MM format)"
+        },
+        "proactiveAssistant.interruptionThreshold": {
+          "type": "number",
+          "default": 0.7,
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Confidence threshold for showing suggestions (0-1)"
+        },
+        "proactiveAssistant.snoozeDuration": {
+          "type": "number",
+          "default": 30,
+          "minimum": 5,
+          "maximum": 240,
+          "description": "Default snooze duration in minutes"
+        },
+        "proactiveAssistant.piecesOs.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable Pieces OS integration"
+        },
+        "proactiveAssistant.piecesOs.host": {
+          "type": "string",
+          "default": "localhost",
+          "description": "Pieces OS server host"
+        },
+        "proactiveAssistant.piecesOs.port": {
+          "type": "number",
+          "default": 5323,
+          "description": "Pieces OS server port"
+        },
+        "proactiveAssistant.logging.level": {
+          "type": "string",
+          "enum": [
+            "debug",
+            "info",
+            "warn",
+            "error"
+          ],
+          "default": "info",
+          "description": "Logging level for the extension"
+        },
+        "proactiveAssistant.activityTracking.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable activity tracking for context awareness"
+        },
+        "proactiveAssistant.activityTracking.sampleInterval": {
+          "type": "number",
+          "default": 5000,
+          "minimum": 1000,
+          "maximum": 60000,
+          "description": "Interval in milliseconds for activity sampling"
+        },
+        "proactiveAssistant.askDismissalReason": {
+          "type": "boolean",
+          "default": true,
+          "description": "Ask for reason when dismissing suggestions (helps improve recommendations)"
+        }
+      }
+    },
+    "viewsWelcome": [
+      {
+        "view": "proactiveAssistant.panel",
+        "contents": "Welcome to Proactive AI Assistant!\n\nThis extension monitors your workflow and provides helpful suggestions at the right time.\n\n[Open Settings](command:proactiveAssistant.configure)\n[Toggle Focus Mode](command:proactiveAssistant.toggleFocusMode)"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile && npm run build:webview",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "build:webview": "cd webview && npm run build",
+    "watch:webview": "cd webview && npm run watch",
+    "lint": "eslint src --ext ts",
+    "lint:fix": "eslint src --ext ts --fix",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "test": "node ./out/test/runTest.js",
+    "test:coverage": "nyc npm test",
+    "package": "vsce package --no-dependencies",
+    "clean": "rimraf out",
+    "rebuild": "npm run clean && npm install && npm run compile && npm run build:webview"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.x",
+    "@types/node": "^18.x",
+    "@types/vscode": "^1.74.0",
+    "@typescript-eslint/eslint-plugin": "^6.x",
+    "@typescript-eslint/parser": "^6.x",
+    "@vscode/test-electron": "^2.x",
+    "@vscode/vsce": "^2.x",
+    "eslint": "^8.x",
+    "glob": "^10.x",
+    "mocha": "^10.x",
+    "nyc": "^15.x",
+    "ovsx": "^0.8.x",
+    "prettier": "^3.x",
+    "rimraf": "^5.x",
+    "typescript": "^5.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/example/proactive-ai-assistant.git"
+  },
+  "bugs": {
+    "url": "https://github.com/example/proactive-ai-assistant/issues"
+  },
+  "homepage": "https://github.com/example/proactive-ai-assistant#readme"
+}

@@ -1,0 +1,98 @@
+/* ============================================
+   FEEDBACK BUTTONS - DARK THEME
+   ============================================ */
+
+.feedback-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.feedback-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  background: var(--color-bg, #0f172a);
+  border: 1px solid var(--color-border, #334155);
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.feedback-btn:hover {
+  background: var(--color-bg-hover, #334155);
+  transform: scale(1.05);
+}
+
+.feedback-btn .btn-icon {
+  font-size: 1rem;
+}
+
+.feedback-btn .btn-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-text-secondary, #94a3b8);
+}
+
+/* Chat Button */
+.chat-btn {
+  background: rgba(139, 92, 246, 0.15);
+  border-color: rgba(139, 92, 246, 0.3);
+  color: #a78bfa;
+}
+
+.chat-btn:hover {
+  background: rgba(139, 92, 246, 0.25);
+  border-color: rgba(139, 92, 246, 0.5);
+}
+
+.chat-btn .btn-label {
+  color: #a78bfa;
+}
+
+/* Like Button */
+.like-btn.active {
+  background: rgba(34, 197, 94, 0.15);
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+.like-btn.active:hover {
+  background: rgba(34, 197, 94, 0.25);
+  border-color: rgba(34, 197, 94, 0.5);
+}
+
+/* Dislike Button */
+.dislike-btn.active {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.dislike-btn.active:hover {
+  background: rgba(239, 68, 68, 0.25);
+  border-color: rgba(239, 68, 68, 0.5);
+}
+
+/* Feedback Divider */
+.feedback-divider {
+  width: 1px;
+  height: 20px;
+  background: var(--color-border, #334155);
+  margin: 0 0.25rem;
+}
+
+/* Compact Mode */
+.feedback-buttons.compact {
+  gap: 0.25rem;
+}
+
+.feedback-buttons.compact .feedback-btn {
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+}
+
+.feedback-buttons.compact .feedback-btn .btn-icon {
+  font-size: 0.85rem;
+}

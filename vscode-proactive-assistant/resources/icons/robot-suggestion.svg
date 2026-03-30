@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none">
+  <!-- Robot Suggestion - Amber/Orange, has suggestion -->
+  <rect x="4" y="5" width="8" height="7" rx="1.5" fill="#D29922"/>
+  <rect x="6" y="2" width="4" height="3" rx="1" fill="#D29922"/>
+  <circle cx="6.5" cy="8.5" r="1" fill="#FFFFFF"/>
+  <circle cx="9.5" cy="8.5" r="1" fill="#FFFFFF"/>
+  <rect x="6" y="11" width="4" height="1" rx="0.5" fill="#FFFFFF"/>
+  <!-- Suggestion indicator dot -->
+  <circle cx="12" cy="4" r="2" fill="#F85149"/>
+</svg>

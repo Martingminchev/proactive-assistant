@@ -1,0 +1,114 @@
+{
+  "name": "nexus-assistant",
+  "version": "1.0.0",
+  "description": "A futuristic AI assistant powered by Kimi K2.5 with system awareness",
+  "main": "dist/main/main.js",
+  "author": "Nexus Labs",
+  "license": "MIT",
+  "scripts": {
+    "dev": "npm run build && electron .",
+    "dev:watch": "concurrently \"npm run build:main:watch\" \"npm run build:renderer:watch\" \"wait-on dist/main/main.js dist/renderer/index.html && electron .\"",
+    "build": "npm run clean && npm run build:main && npm run build:renderer",
+    "build:main": "tsc -p tsconfig.main.json && node scripts/copy-prompts.js",
+    "build:renderer": "vite build",
+    "build:main:watch": "tsc -p tsconfig.main.json --watch",
+    "build:renderer:watch": "vite build --watch --mode development",
+    "clean": "rimraf dist",
+    "lint": "eslint src --ext .ts,.tsx",
+    "typecheck": "tsc --noEmit -p tsconfig.main.json && tsc --noEmit -p tsconfig.renderer.json",
+    "package": "electron-builder",
+    "package:win": "electron-builder --win",
+    "package:mac": "electron-builder --mac",
+    "package:linux": "electron-builder --linux"
+  },
+  "dependencies": {
+    "@electron/remote": "^2.1.2",
+    "@modelcontextprotocol/sdk": "^1.25.3",
+    "active-win": "^8.2.1",
+    "chokidar": "^3.6.0",
+    "electron-log": "^5.1.0",
+    "electron-store": "^8.1.0",
+    "electron-updater": "^6.2.0",
+    "glob": "^10.5.0",
+    "mathjs": "^12.4.0",
+    "node-fetch": "^3.3.2",
+    "systeminformation": "^5.23.0",
+    "tesseract.js": "^6.0.0",
+    "uuid": "^9.0.1",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@types/uuid": "^9.0.8",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.17",
+    "concurrently": "^8.2.2",
+    "electron": "^28.2.0",
+    "electron-builder": "^24.9.1",
+    "framer-motion": "^11.0.0",
+    "lucide-react": "^0.312.0",
+    "postcss": "^8.4.33",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-markdown": "^9.0.1",
+    "react-syntax-highlighter": "^15.5.0",
+    "recharts": "^2.10.4",
+    "rimraf": "^5.0.5",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.12",
+    "wait-on": "^7.2.0",
+    "zustand": "^4.5.0"
+  },
+  "build": {
+    "appId": "com.nexus.assistant",
+    "productName": "Nexus",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ]
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "category": "Office"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}

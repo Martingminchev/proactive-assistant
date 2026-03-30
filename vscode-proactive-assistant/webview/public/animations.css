@@ -1,0 +1,513 @@
+/**
+ * Proactive AI Assistant - Animations
+ * CSS animations for webview UI components
+ * Optimized for VS Code extension webviews
+ */
+
+/* ========================================
+   PULSE ANIMATIONS
+   ======================================== */
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(88, 166, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(88, 166, 255, 0);
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ========================================
+   FADE ANIMATIONS
+   ======================================== */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+.animate-fade-out {
+  animation: fade-out 0.2s ease-in forwards;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.3s ease-out forwards;
+}
+
+.animate-fade-in-down {
+  animation: fade-in-down 0.3s ease-out forwards;
+}
+
+/* ========================================
+   SLIDE ANIMATIONS
+   ======================================== */
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out-right {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.3s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.3s ease-out forwards;
+}
+
+.animate-slide-out-right {
+  animation: slide-out-right 0.2s ease-in forwards;
+}
+
+.animate-slide-in-up {
+  animation: slide-in-up 0.3s ease-out forwards;
+}
+
+/* ========================================
+   CONFETTI EFFECT (CSS Only)
+   ======================================== */
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-20px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(200px) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.confetti {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  opacity: 0;
+}
+
+.confetti-1 {
+  background: var(--vscode-charts-red, #F85149);
+  left: 10%;
+  animation: confetti-fall 2s ease-out 0s forwards;
+}
+
+.confetti-2 {
+  background: var(--vscode-charts-blue, #58A6FF);
+  left: 20%;
+  animation: confetti-fall 2.5s ease-out 0.1s forwards;
+}
+
+.confetti-3 {
+  background: var(--vscode-charts-green, #3FB950);
+  left: 30%;
+  animation: confetti-fall 2.2s ease-out 0.2s forwards;
+}
+
+.confetti-4 {
+  background: var(--vscode-charts-yellow, #D29922);
+  left: 40%;
+  animation: confetti-fall 2.7s ease-out 0.15s forwards;
+}
+
+.confetti-5 {
+  background: var(--vscode-charts-purple, #A371F7);
+  left: 50%;
+  animation: confetti-fall 2s ease-out 0.3s forwards;
+}
+
+.confetti-6 {
+  background: var(--vscode-charts-red, #F85149);
+  left: 60%;
+  animation: confetti-fall 2.4s ease-out 0.25s forwards;
+}
+
+.confetti-7 {
+  background: var(--vscode-charts-blue, #58A6FF);
+  left: 70%;
+  animation: confetti-fall 2.1s ease-out 0.35s forwards;
+}
+
+.confetti-8 {
+  background: var(--vscode-charts-green, #3FB950);
+  left: 80%;
+  animation: confetti-fall 2.6s ease-out 0.4s forwards;
+}
+
+.confetti-9 {
+  background: var(--vscode-charts-yellow, #D29922);
+  left: 90%;
+  animation: confetti-fall 1.9s ease-out 0.45s forwards;
+}
+
+/* ========================================
+   LOADING SPINNERS
+   ======================================== */
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-dots {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-25%);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.animate-spin-slow {
+  animation: spin 2s linear infinite;
+}
+
+.spinner-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.spinner-dots > div {
+  width: 8px;
+  height: 8px;
+  background-color: var(--vscode-foreground, #CCCCCC);
+  border-radius: 50%;
+  animation: spin-dots 1.4s ease-in-out infinite both;
+}
+
+.spinner-dots > div:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.spinner-dots > div:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+.spinner-bounce {
+  animation: bounce 1s ease-in-out infinite;
+}
+
+/* Ring spinner */
+.spinner-ring {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+.spinner-ring::after {
+  content: '';
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--vscode-foreground, #CCCCCC);
+  border-color: var(--vscode-foreground, #CCCCCC) transparent var(--vscode-foreground, #CCCCCC) transparent;
+  animation: spin 1.2s linear infinite;
+}
+
+/* ========================================
+   SKELETON LOADING
+   ======================================== */
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--vscode-editor-background, #1E1E1E) 25%,
+    var(--vscode-editor-lineHighlightBackground, #2D2D2D) 50%,
+    var(--vscode-editor-background, #1E1E1E) 75%
+  );
+  background-size: 200px 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+  border-radius: 4px;
+}
+
+/* ========================================
+   NOTIFICATION BADGE
+   ======================================== */
+
+@keyframes badge-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.badge-pulse {
+  animation: badge-pulse 1s ease-in-out infinite;
+}
+
+/* ========================================
+   TYPING INDICATOR
+   ======================================== */
+
+@keyframes typing {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-4px);
+  }
+}
+
+.typing-indicator {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+
+.typing-indicator span {
+  width: 6px;
+  height: 6px;
+  background-color: var(--vscode-foreground, #CCCCCC);
+  border-radius: 50%;
+  animation: typing 1.4s ease-in-out infinite both;
+}
+
+.typing-indicator span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+/* ========================================
+   STATE TRANSITIONS
+   ======================================== */
+
+.transition-all {
+  transition: all 0.2s ease-in-out;
+}
+
+.transition-colors {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.transition-transform {
+  transition: transform 0.2s ease-in-out;
+}
+
+.transition-opacity {
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* Hover lift effect */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ========================================
+   PROGRESS BAR
+   ======================================== */
+
+@keyframes progress-indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+.progress-indeterminate {
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-indeterminate::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--vscode-progressBar-background, #007ACC),
+    transparent
+  );
+  animation: progress-indeterminate 2s linear infinite;
+}
+
+/* ========================================
+   SHIMMER EFFECT
+   ======================================== */
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* ========================================
+   REDUCED MOTION
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,17 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 Documentation
+    url: https://github.com/example/proactive-ai-assistant#readme
+    about: Check the README for usage instructions and configuration options
+  
+  - name: 💬 Discussions
+    url: https://github.com/example/proactive-ai-assistant/discussions
+    about: Ask questions, share ideas, or discuss the extension with the community
+  
+  - name: 🚀 Feature Voting
+    url: https://github.com/example/proactive-ai-assistant/discussions/categories/ideas
+    about: Vote on and propose new features in our Ideas discussion board
+  
+  - name: 🐛 Pieces OS Issues
+    url: https://github.com/pieces-app/support
+    about: If your issue is related to Pieces OS integration, please report it to the Pieces support team

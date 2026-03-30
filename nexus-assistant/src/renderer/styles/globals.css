@@ -1,0 +1,398 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =============================================================================
+   NEXUS - Global Styles
+   Futuristic dark theme with glassmorphism and neon accents
+   ============================================================================= */
+
+@layer base {
+  :root {
+    --base-font-size: 16px;
+    
+    --color-bg-primary: #050508;
+    --color-bg-secondary: #0a0a12;
+    --color-bg-tertiary: #12121a;
+    --color-bg-elevated: #1a1a24;
+    --color-bg-card: #252532;
+    
+    --color-text-primary: #f1f5f9;
+    --color-text-secondary: #a1a1aa; /* was slate-400 equivalent */
+    --color-text-tertiary: #71717a;  /* was slate-500 equivalent */
+    
+    --color-accent-cyan: #00f0ff;
+    --color-accent-magenta: #ff00ff;
+    --color-accent-violet: #8b5cf6;
+    --color-accent-emerald: #00ff9d;
+    --color-accent-amber: #ffb800;
+    
+    --color-border: rgba(255, 255, 255, 0.08);
+    --color-glow-cyan: rgba(0, 240, 255, 0.5);
+    --color-glow-violet: rgba(139, 92, 246, 0.5);
+  }
+  
+  html {
+    font-size: var(--base-font-size);
+  }
+
+  * {
+    @apply border-[var(--color-border)];
+  }
+
+  html {
+    @apply antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  body {
+    @apply bg-[var(--color-bg-primary)] text-[var(--color-text-primary)];
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    overflow: hidden;
+  }
+
+  /* Font display utility classes with fallbacks */
+  .font-display {
+    font-family: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Selection */
+  ::selection {
+    background: rgba(0, 240, 255, 0.3);
+    color: #fff;
+  }
+}
+
+@layer components {
+  /* Glass Card */
+  .glass {
+    @apply relative overflow-hidden;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  .glass-light {
+    @apply relative overflow-hidden;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Gradient Border */
+  .gradient-border {
+    position: relative;
+    background: var(--color-bg-tertiary);
+    border-radius: 12px;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 240, 255, 0.5),
+      rgba(139, 92, 246, 0.5) 50%,
+      rgba(0, 240, 255, 0.3)
+    );
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* Neon Glow Effects */
+  .glow-cyan {
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+  }
+
+  .glow-violet {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+  }
+
+  .glow-emerald {
+    box-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
+  }
+
+  .text-glow-cyan {
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+  }
+
+  /* Animated Gradient Background */
+  .animated-gradient {
+    background: linear-gradient(
+      -45deg,
+      #00f0ff,
+      #8b5cf6,
+      #00ff9d,
+      #00f0ff
+    );
+    background-size: 400% 400%;
+    animation: gradient-shift 8s ease infinite;
+  }
+
+  /* Code Block Styling */
+  .code-block {
+    @apply font-mono text-sm;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+  }
+
+  /* Input Focus Ring */
+  .focus-ring {
+    @apply outline-none;
+    box-shadow: 0 0 0 2px rgba(0, 240, 255, 0.3);
+  }
+
+  /* Button Styles */
+  .btn-primary {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200;
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.2), rgba(139, 92, 246, 0.2));
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    color: var(--color-accent-cyan);
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.3), rgba(139, 92, 246, 0.3));
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-text-secondary);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-text-primary);
+  }
+
+  .btn-ghost {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200;
+    background: transparent;
+    color: var(--color-text-secondary);
+  }
+
+  .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-text-primary);
+  }
+
+  /* Typing Indicator */
+  .typing-dot {
+    @apply w-2 h-2 rounded-full bg-[var(--color-accent-cyan)];
+    animation: typing-bounce 1s ease-in-out infinite;
+  }
+
+  .typing-dot:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+
+  .typing-dot:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Text gradient */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #00f0ff, #8b5cf6);
+  }
+
+  /* Shimmer effect */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+}
+
+/* =============================================================================
+   Keyframes
+   ============================================================================= */
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes typing-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 240, 255, 0.6);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =============================================================================
+   Syntax Highlighting Overrides
+   ============================================================================= */
+
+pre {
+  @apply bg-black/40 rounded-lg p-4 overflow-x-auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+code {
+  @apply font-mono text-sm;
+}
+
+:not(pre) > code {
+  @apply px-1.5 py-0.5 rounded bg-white/10 text-[var(--color-accent-cyan)];
+}
+
+/* =============================================================================
+   Markdown Content Styles
+   ============================================================================= */
+
+.markdown-content h1 {
+  @apply text-2xl font-bold mb-4 text-white;
+}
+
+.markdown-content h2 {
+  @apply text-xl font-semibold mb-3 mt-6 text-white;
+}
+
+.markdown-content h3 {
+  @apply text-lg font-medium mb-2 mt-4 text-white;
+}
+
+.markdown-content p {
+  @apply mb-4 leading-relaxed text-slate-300;
+}
+
+.markdown-content ul {
+  @apply list-disc list-inside mb-4 space-y-1;
+}
+
+.markdown-content ol {
+  @apply list-decimal list-inside mb-4 space-y-1;
+}
+
+.markdown-content li {
+  @apply text-slate-300;
+}
+
+.markdown-content blockquote {
+  @apply border-l-2 border-[var(--color-accent-cyan)] pl-4 italic my-4 text-slate-400;
+}
+
+.markdown-content a {
+  @apply text-[var(--color-accent-cyan)] hover:underline;
+}
+
+.markdown-content table {
+  @apply w-full mb-4 border-collapse;
+}
+
+.markdown-content th,
+.markdown-content td {
+  @apply border border-white/10 px-4 py-2 text-left;
+}
+
+.markdown-content th {
+  @apply bg-white/5 font-medium;
+}
+
+.markdown-content hr {
+  @apply border-white/10 my-6;
+}

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none">
+  <!-- Robot Offline - Gray, Pieces OS disconnected -->
+  <rect x="4" y="5" width="8" height="7" rx="1.5" fill="#484F58"/>
+  <rect x="6" y="2" width="4" height="3" rx="1" fill="#484F58"/>
+  <circle cx="6.5" cy="8.5" r="1" fill="#6E7681"/>
+  <circle cx="9.5" cy="8.5" r="1" fill="#6E7681"/>
+  <rect x="6" y="11" width="4" height="1" rx="0.5" fill="#6E7681"/>
+  <!-- Disconnected slash -->
+  <line x1="12" y1="2" x2="14" y2="4" stroke="#F85149" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="14" y1="2" x2="12" y2="4" stroke="#F85149" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

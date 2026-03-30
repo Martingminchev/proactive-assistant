@@ -1,0 +1,58 @@
+version: 2
+updates:
+  # Enable version updates for npm
+  - package-ecosystem: "npm"
+    # Look for `package.json` and `lock` files in the extension directory
+    directory: "/vscode-proactive-assistant"
+    # Check for updates weekly
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    # Group all dev dependencies into a single PR
+    groups:
+      dev-dependencies:
+        patterns:
+          - "@types/*"
+          - "@typescript-eslint/*"
+          - "eslint*"
+          - "typescript"
+          - "@vscode/*"
+      production-dependencies:
+        patterns:
+          - "ws"
+    # Maximum number of open PRs
+    open-pull-requests-limit: 10
+    # Labels on pull requests
+    labels:
+      - "dependencies"
+      - "automated"
+    # Reviewers
+    reviewers:
+      - "maintainer-lead"
+    # Commit message settings
+    commit-message:
+      prefix: "chore(deps)"
+      include: "scope"
+    # Ignore certain dependencies if needed
+    ignore:
+      # Example: ignore major version updates for ws
+      # - dependency-name: "ws"
+      #   update-types: ["version-update:semver-major"]
+
+  # Enable version updates for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    labels:
+      - "dependencies"
+      - "github-actions"
+      - "automated"
+    reviewers:
+      - "maintainer-lead"
+    commit-message:
+      prefix: "chore(actions)"
+      include: "scope"

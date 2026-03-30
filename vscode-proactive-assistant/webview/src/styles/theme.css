@@ -1,0 +1,132 @@
+:root {
+  --proactive-blue: #58A6FF;
+  --proactive-blue-dark: #1F6FEB;
+  --proactive-blue-light: #79B8FF;
+  
+  --proactive-green: #3FB950;
+  --proactive-amber: #D29922;
+  --proactive-orange: #E3B341;
+  --proactive-red: #F85149;
+  --proactive-purple: #A371F7;
+  --proactive-pink: #F778BA;
+  
+  --proactive-gray-100: #F0F6FC;
+  --proactive-gray-200: #C9D1D9;
+  --proactive-gray-300: #B1BAC4;
+  --proactive-gray-400: #8B949E;
+  --proactive-gray-500: #6E7681;
+  --proactive-gray-600: #484F58;
+  --proactive-gray-700: #30363D;
+  --proactive-gray-800: #21262D;
+  --proactive-gray-900: #161B22;
+  
+  --color-foreground: var(--vscode-foreground, #C9D1D9);
+  --color-background: var(--vscode-editor-background, #0D1117);
+  --color-surface: var(--vscode-panel-background, #161B22);
+  --color-surface-hover: var(--vscode-list-hoverBackground, #1F242C);
+  --color-border: var(--vscode-panel-border, #30363D);
+  --color-border-focus: var(--vscode-focusBorder, #58A6FF);
+  
+  --color-success: var(--vscode-charts-green, #3FB950);
+  --color-warning: var(--vscode-charts-yellow, #D29922);
+  --color-error: var(--vscode-charts-red, #F85149);
+  --color-info: var(--vscode-charts-blue, #58A6FF);
+  --color-accent: var(--vscode-charts-purple, #A371F7);
+  
+  --color-button-bg: var(--vscode-button-background, #238636);
+  --color-button-fg: var(--vscode-button-foreground, #FFFFFF);
+  --color-button-hover: var(--vscode-button-hoverBackground, #2EA043);
+  --color-input-bg: var(--vscode-input-background, #21262D);
+  --color-input-fg: var(--vscode-input-foreground, #C9D1D9);
+  --color-input-border: var(--vscode-input-border, #30363D);
+  
+  --font-family-base: var(--vscode-font-family, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  --font-size-base: var(--vscode-font-size, 13px);
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 600;
+  
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+  --space-2xl: 32px;
+  
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-full: 9999px;
+  
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.2);
+  --shadow-glow-blue: 0 0 0 3px rgba(88, 166, 255, 0.3);
+  --shadow-glow-amber: 0 0 0 3px rgba(210, 153, 34, 0.3);
+  --shadow-glow-red: 0 0 0 3px rgba(248, 81, 73, 0.3);
+  --shadow-glow-purple: 0 0 0 3px rgba(163, 113, 247, 0.3);
+  
+  --transition-fast: 150ms ease;
+  --transition-base: 200ms ease;
+  --transition-slow: 300ms ease;
+  
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-modal: 300;
+  --z-tooltip: 400;
+  --z-toast: 500;
+}
+
+@media (prefers-contrast: high) {
+  :root {
+    --color-border: var(--vscode-contrastBorder, #FFFFFF);
+    --color-border-focus: var(--vscode-contrastActiveBorder, #F38518);
+    --shadow-sm: none;
+    --shadow-md: none;
+    --shadow-lg: none;
+  }
+  
+  * {
+    outline-color: currentColor;
+  }
+}
+
+.vscode-light {
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.text-success { color: var(--color-success); }
+.text-warning { color: var(--color-warning); }
+.text-error { color: var(--color-error); }
+.text-info { color: var(--color-info); }
+.text-accent { color: var(--color-accent); }
+.text-muted { color: var(--vscode-descriptionForeground, var(--proactive-gray-400)); }
+
+.bg-surface { background-color: var(--color-surface); }
+.bg-surface-hover:hover { background-color: var(--color-surface-hover); }
+
+.border-default { border: 1px solid var(--color-border); }
+.border-focus:focus { border-color: var(--color-border-focus); }
+
+.focus-ring:focus {
+  outline: none;
+  box-shadow: var(--shadow-glow-blue);
+}
+
+.focus-ring-amber:focus {
+  outline: none;
+  box-shadow: var(--shadow-glow-amber);
+}
+
+.focus-ring-red:focus {
+  outline: none;
+  box-shadow: var(--shadow-glow-red);
+}
+
+.focus-ring-purple:focus {
+  outline: none;
+  box-shadow: var(--shadow-glow-purple);
+}
